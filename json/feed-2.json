@@ -1,0 +1,32 @@
+[
+{
+	"date": "20 min",
+	"message": "Good morning, France!",
+	"sender": "Pierre"
+	"contents": {
+		"liked": ["Tim", "Jessy", "Jim"],
+		"favorited": ["Jack", "Jill"],
+		"relinked": ["Joe", "Lopez"]
+	}
+},
+{
+	"date": "25 min",
+	"message": "My dog ate peanuts",
+	"sender": "Dr. White"
+	"contents": {
+		"liked": ["Blue", "Jessy", "Gemini"],
+		"favorited": ["Jackson", "Michael"],
+		"relinked": ["Green"]
+	}
+},
+{
+	"date": "30 min",
+	"message": "Well, it happened again",
+	"sender": "Pablo"
+	"contents": {
+		"liked": ["Kanye", "Dog"],
+		"favorited": ["Ice Cream", "Coke"],
+		"relinked": ["Frostbite", "NYK", "Steph]
+	}
+}
+]
