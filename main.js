@@ -10,6 +10,13 @@
 		console.log("It worked!", aData);
 	}
 });*/
+
+// CORS
+// Access-Control-Allow-Origin
+// Access-Control-Allow-Method
+// Access-Control-Allow-Header
+// next()
+
 var containerRefresh = document.getElementById("feed-info");
 var btn = document.getElementById("btn"); //runs when button pressed
 	btn.addEventListener('click', function(){
