@@ -32,6 +32,10 @@ window.location.replace("https://oauth2server.com/auth?response_type=code&client
 
 /*********************************
  Current AJAX JSON-Parse Approach
+ @param req	requests for JSON data
+ @param res	resets memory for new data
+ @param next	moves onto the next set
+ @return	an HTML string made from JSON data sets
 **********************************/
 var page = 1;
 var containerRefresh = document.getElementById("feed-info");
