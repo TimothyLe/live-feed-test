@@ -1,4 +1,7 @@
-/*$.ajax({
+/******************************************
+	Traditional AJAX Approach	
+*******************************************
+$.ajax({
     type: 'GET',
     dataType: 'jsonp',
     url: 'https://github.com/TimothyLe/live-feed-test/blob/master/json/feed-1.json',
@@ -9,9 +12,12 @@
 	success: function(aData) {
 		console.log("It worked!", aData);
 	}
-});*/
+});
+*/
 
-
+/*****************************
+Control Access Remote Origin
+******************************/
 // CORS
 // Access-Control-Allow-Origin
 // Access-Control-Allow-Method
@@ -24,6 +30,9 @@ window.location.replace("https://oauth2server.com/auth?response_type=code&client
 // Href is similar but latches onto the original page the user was on
 // window.location.href = "...";
 
+/*********************************
+ Current AJAX JSON-Parse Approach
+**********************************/
 var page = 1;
 var containerRefresh = document.getElementById("feed-info");
 var btn = document.getElementById("btn"); 
