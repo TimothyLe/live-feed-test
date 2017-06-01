@@ -1,5 +1,5 @@
 # Live Feed Test
-![https://travis-ci.org/TimothyLe/live-feed-test.svg?branch=master](https://travis-ci.org/TimothyLe/live-feed-test)
+[![Build Status](https://travis-ci.org/TimothyLe/live-feed-test.svg?branch=master)](https://travis-ci.org/TimothyLe/live-feed-test)  
 An assessment of utilizing HTML, Javascript, and CSS files to create an application that can receive update from the web without including the data already inside the code. 
 
 ## Project
