@@ -18,6 +18,37 @@ window.location.replace("https://oauth2server.com/auth?response_type=code&client
 // Href is similar but latches onto the original page the user was on
 // window.location.href = "...";
 
+/*!< Simple Request */
+var url = 'https://github.com/TimothyLe/live-feed-test/tree/master';
+var xhr = createCORSRequest('GET', url);
+xhr.send();
+
+/*!< HTTP Request */
+// GET /cors HTTP/1.1
+// Origin: https://github.com/TimothyLe/live-feed-test/tree/master
+// Host: github.com
+// Accept-Language: en-US
+// Connection: keep-alive
+// User-Agent: Chrome/59.0.3071.115
+
+/*!< Preflight Request */
+var url = 'https://github.com/TimothyLe/live-feed-test/tree/master';
+var xhr = createCORSRequest('PUT', url);
+xhr.setRequestHeader(
+    'X-Custom-Header', 'value');
+xhr.send();
+
+/*!< Preflight HTTP Request */
+// OPTIONS /cors HTTP/1.1
+// Origin: https://github.com/TimothyLe/live-feed-test/tree/master
+// Access-Control-Request-Method: PUT
+// Access-Control-Request-Headers: X-Custom-Header
+// Host: github.com
+// Accept-Language: en-US
+// Connection: keep-alive
+// User-Agent: Chrome/59.0.3071.115
+
+
 var dataSet = 1;
 var containerRefresh = document.getElementById("feed-info");
 var btn = document.getElementById("btn"); //runs when button pressed
