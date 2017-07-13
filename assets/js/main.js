@@ -1,22 +1,3 @@
-/* Request Key jQuery
-$.ajax({
-    type: 'GET',
-    dataType: 'jsonp',
-    url: 'https://github.com/TimothyLe/live-feed-test/blob/master/json/feed-1.json',
-    crossDomain : true,
-    xhrFields: {
-        withCredentials: true
-    },
-	success: function(aData) {
-		console.log("It worked!", aData);
-	}
-});*/
-
-// Replace() clears window session history which keeps the original page out of the loop
-window.location.replace("https://oauth2server.com/auth?response_type=code&client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&scope=photos&state=1234zyx");
-
-// Href is similar but latches onto the original page the user was on
-// window.location.href = "...";
 
 /*!< Simple Request */
 var url = 'https://github.com/TimothyLe/live-feed-test/tree/master';
@@ -35,7 +16,7 @@ xhr.send();
 var url = 'https://github.com/TimothyLe/live-feed-test/tree/master';
 var xhr = createCORSRequest('PUT', url);
 xhr.setRequestHeader(
-    'X-Custom-Header', 'value');
+  'X-Custom-Header', 'value');
 xhr.send();
 
 /*!< Preflight HTTP Request */
@@ -48,35 +29,7 @@ xhr.send();
 // Connection: keep-alive
 // User-Agent: Chrome/59.0.3071.115
 
-
-var dataSet = 1;
-var containerRefresh = document.getElementById("feed-info");
-var btn = document.getElementById("btn"); //runs when button pressed
-	btn.addEventListener('click', function(){
-	var aReq = new XMLHttpRequest(); //runs when webpage opens
-	aReq.open('GET', 'https://github.com/TimothyLe/live-feed-test/blob/master/json/feed-' + dataSet + '.json');
-	aReq.onload = function() {
-	var aData = JSON.parse(aReq.open());
-	renderHTML(aData);
-}
-aReq.send();
-dataSet++;
-}, false);
-
-function renderHTML(aData){
-	var htmlStr = "";
-	for(i = 0; i <aData.length; i++){
-		htmlStr += "<p>" + aData[i].message + " sent by " + aData[i].sender + " " + aData[i].date + " ago." + "</p>";
-	}
-	containerRefresh.insertAdjacentHTML('beforeend', htmlStr);
-}
-
-/*!< Venmo Authentication prototype */
-function venmoRedirect(client_id, scope, response_type, redirect_uri, state){
-  window.location.replace("https://api.venmo.com/v1/oauth/authorize?client_id=<client_id>&scope=<scopes>");
-}
-
-/*
+/*!< Creating CORS request from JS codebase->Browser */
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {
@@ -101,25 +54,35 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
-var xhr = createCORSRequest('GET', url);
-if (!xhr) {
-  throw new Error('CORS not supported');
+/*!< Helper method to parse title tag from response */
+function getTitle(text){
+  return text.match('<title>(.*)?</title>')[1];
 }
-*/
 
-/*!< React Native - Hello World Example*/
-/*
-import React, { Component } from 'react';
-import { AppRegistry, Text } from 'react-native';
-
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-      <Text>Hello world!</Text>
-    );
+/*!< Makes CORS request from Browser->Server side */
+function makeCorseRequest(){
+  // Server supporting CORS
+  var url = renderHTML(input); // Form input entry
+  url.addEventListener('click', function(){/*TODO*/});
+  
+  // Creats XHR object
+  var xhr = createCORSRequest('GET', url);
+  if(!xhr){
+    alert('URL does not support CORS');
+    return;
   }
-}
+  
+  // Response handlers
+  xhr.onload = function(){
+    var text = xhr.responseText;
+    var title = getTitle(text);
+    alert('Server response to ' + url + ': ' + title);
+  };
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
-*/
+  // Error handling
+  xhr.onerror = function(){
+    alert('Sorry, an error occurred with the request.');
+  };
+
+  xhr.send();
+}
