@@ -2,7 +2,9 @@
 [![Build Status](https://travis-ci.org/TimothyLe/live-feed-test.svg?branch=master)](https://travis-ci.org/TimothyLe/live-feed-test)  
 A data retrieval tool that simplifies cross origin HTTP requests (or CORS) and minimizes the work needed to done with tokens and etc.   
 **Work In Progress**  
-This project is not yet ready for use and still runs into issues with requests in a Chrome Browser where it is being tested.
+This project is not yet ready for use and still runs into issues with requests in a Chrome Browser where it is being tested.  
+**View Current Progress**  
+[Live Feed Test](https://timothyle.github.io/live-feed-test/index.html)  
 
 ## Project
 This is a solo project where I will be conducting tests with parsing JSON data through AJAX Http requests. 
